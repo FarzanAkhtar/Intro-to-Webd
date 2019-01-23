@@ -5,11 +5,11 @@ app_name = 'music'
 
 urlpatterns = [
     #/music/
-    path('', views.index, name='index'),
+    path('', views.IndexView.as_view(), name='index'),
 
     #/music/album.id
-    path('<int:album_id>/', views.detail, name='detail'),
+    path('<int:pk>/', views.DetailView.as_view(), name='detail'),
 
-    #/music/album.id/favourite
-    path('<int:album_id>/favourite/', views.favourite, name='favourite'),
+    #/music/album/add/
+    path('album/add/', views.CreateView.as_view(), name='album-add'),
 ]
